@@ -1,2 +1,7 @@
-package hello.core.member;public class MemberService {
+package hello.core.member;
+
+public interface MemberService {
+
+    void join(Member member);//가입
+    Member findMember(Long memberId); //회원찾기
 }
