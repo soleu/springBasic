@@ -10,11 +10,23 @@ import hello.core.order.OrderService;
 import hello.core.order.OrderServiceImpl;
 
 public class AppConfig {
+
+    private MemberRepository memberRepository() {
+        return new MemoryMemberRepository();
+    }
+
     public MemberService memberService(){
-        return new MemberServiceImpl(new MemoryMemberRepository());//여기서 생성자 주입
+
+        return new MemberServiceImpl(memberRepository());//여기서 생성자 주입
+    }
+
+    public DiscountPolicy discountPolicy(){
+        return new FixDiscountPolicy();
     }
 
     public OrderService orderService(){
-        return new OrderServiceImpl(new MemoryMemberRepository(),new FixDiscountPolicy());
+        return new OrderServiceImpl(memberRepository(),discountPolicy());
     }
+
+
 }
