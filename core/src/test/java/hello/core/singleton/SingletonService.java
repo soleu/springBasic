@@ -9,7 +9,7 @@ public class SingletonService {
         return instance;
     }
 
-    
+
     public static void main(String[] args){
 
     }
