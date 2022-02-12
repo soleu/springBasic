@@ -28,7 +28,16 @@ public class SingletonTest {
         assertThat(memberService1).isNotSameAs(memberService2);
         //고객의 요청이 들어올때(트래픽이 발생할 때 마다 객체가 생성됨)
 
-
-
+    }
+    @Test
+    @DisplayName("싱글톤 패턴을 적용한 객체 사용")
+    void singletonServiceTest(){
+        SingletonService singletonService1=SingletonService.getInstance();
+        SingletonService singletonService2=SingletonService.getInstance();
+//       soutv + tab
+        System.out.println("singletonService1 = " + singletonService1);
+        System.out.println("singletonService2 = " + singletonService2);
+        //isSameAs : 인스턴스가 같은지, isEqualsAs : 자바의 equals
+        assertThat(singletonService1).isSameAs(singletonService2); //싱글톤으로 같은 객체 인스턴스를 반환(new X)
     }
 }
