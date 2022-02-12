@@ -18,18 +18,21 @@ public class AppConfig {
     public MemberRepository memberRepository() {
         return new MemoryMemberRepository();
     }
+
     @Bean
-    public MemberService memberService(){
+    public MemberService memberService() {
 
         return new MemberServiceImpl(memberRepository());//여기서 생성자 주입
     }
+
     @Bean
-    public DiscountPolicy discountPolicy(){
+    public DiscountPolicy discountPolicy() {
         return new RateDiscountPolicy();
     }
+
     @Bean
-    public OrderService orderService(){
-        return new OrderServiceImpl(memberRepository(),discountPolicy());
+    public OrderService orderService() {
+        return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
 
 
