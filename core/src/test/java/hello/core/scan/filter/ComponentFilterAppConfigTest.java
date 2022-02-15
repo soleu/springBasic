@@ -1,6 +1,5 @@
-package hello.core.filter;
+package hello.core.scan.filter;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.context.ApplicationContext;
@@ -17,8 +16,9 @@ public class ComponentFilterAppConfigTest {
     @Test
     void filterScan() {
         //Alt(option)+enter
-        ApplicationContext ac = new AnnotationConfigApplicationContext(ComponentFilterAppConfigTest.class);
-        BeanA beanA = ac.getBean("beanA", BeanA.class);//스프링 빈에 추가
+        ApplicationContext ac = new AnnotationConfigApplicationContext(ComponentAppConfig.class);
+        BeanA beanA=ac.getBean("beanA",BeanA.class);
+//        BeanA beanA = ac.getBean("beanA", BeanA.class);//스프링 빈에 추가
         assertThat(beanA).isNotNull();
 
         //스프링 빈에 추가되지 않음
