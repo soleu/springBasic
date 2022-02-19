@@ -40,7 +40,7 @@ public class SingletonWithPrototypeTest1 {
         //        private final PrototypeBean prototypeBean;
         @Autowired
         private ObjectProvider<PrototypeBean> prototypeBeanProvider;
-        
+
 
         public int logic() {
             PrototypeBean prototypeBean = prototypeBeanProvider.getObject();
